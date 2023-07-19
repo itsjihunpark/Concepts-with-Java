@@ -16,3 +16,7 @@ Navigate through my source code here to see notes on:
 - [Inheritance pt2](./Inheritance/src/main/java/com/mycompany/inheritance)
 - [Runtime Polymorphism](./Runtime-Polymorphism/src/main/java/com/mycompany/polymorphism)
 - Compiletime Polymorphism
+
+## What next?
+- Java Collection Framework
+- Java Streams
