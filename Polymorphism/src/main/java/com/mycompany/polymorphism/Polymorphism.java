@@ -14,33 +14,39 @@ import java.util.Random;
 public class Polymorphism {
     
     public static void addRandomNumber(ArrayList<Integer> list) 
-    //notice how OddArrayList objects are allowed because OddArrayList is also an ArrayList
-    //By having this method take in an ArrayList rather than a more specific
-    //OddArrayList, we were able to create common functionality, this method can 
-    //now be used by a variety of different instance types as long as they extend
-    //ArrayList class. This makes our code more reuseable    
     {
         int originalSize = list.size();
         Random random = new Random();
-        while(originalSize + 1 != list.size()) 
-        // this is done so that this method implementation always adds a number
-        // despite OddArrayList add method implementation only allowing odd number to be added
+        int n = random.nextInt(1000);
+        if (list instanceof ConditionArrayList) 
+        //if instance is of type ConditionArrayList, cast the list object and call function isEligible
         {
-            int n = random.nextInt(1000);
-            list.add(n); 
-        //Implementation of each add method is different and is determined at 
-        //runtime based on instances/objects original type. Hence Runtime polymorphism
+            ConditionArrayList conditionList = (ConditionArrayList) list;
+            while (!conditionList.isEligible(n))
+            {
+                n = random.nextInt(1000);
+                list.add(n);
+            }
         }
+        list.add(n);
         
     }
 
     public static void main(String[] args) {
-        OddArrayList oddList = new OddArrayList();
+        ConditionArrayList oddList = new ConditionArrayList(n -> Math.abs(n) % 2 ==1);
         oddList.add(1);
         oddList.add(3);
         addRandomNumber(oddList);
         System.out.println(oddList);
         System.out.println(oddList.size());
+        
+        ConditionArrayList evenList = new ConditionArrayList(n -> Math.abs(n) % 2 ==0);
+        evenList.add(0);
+        evenList.add(2);
+        addRandomNumber(evenList);
+        System.out.println(evenList);
+        System.out.println(evenList.size());
+        
         
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
