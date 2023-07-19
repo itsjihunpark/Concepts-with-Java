@@ -9,9 +9,10 @@
 
 This was based on LinkedIn learning course Object Oriented programming with Java
 
-Some of the concepts I've learnt include:
+Navigate through my source code here to see notes on:
 - Classes and Objects in Java
 - [Encapsulation](./Encapsulation/src/main/java/com/mycompany/encapsulationbankapp) 
-- Inheritance
-- Runtime Polymorphism
+- [Inheritance](./Inheritance/src/main/java/EmployeeManagementApp)
+- [Inheritance pt2](./Inheritance/src/main/java/com/mycompany/inheritance)
+- [Runtime Polymorphism](./Runtime-Polymorphism/src/main/java/com/mycompany/polymorphism)
 - Compiletime Polymorphism
